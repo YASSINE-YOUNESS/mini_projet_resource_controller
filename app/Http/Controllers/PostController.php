@@ -79,6 +79,6 @@ class PostController extends Controller
     public function destroy($id)
     {
         post::destroy($id);
-        return back();
+        return redirect()->back();
     }
 }
