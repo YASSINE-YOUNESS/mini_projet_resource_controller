@@ -22,7 +22,7 @@
 <div class="container">
     <form method="post" action="{{route('posts.store')}}">
         @csrf
-        Nom <input type ="text" name ="txt_nom" class="form-control w-50">
+        Nom <input type ="text" name ="txt_nom" class="form-control w-50" >
         Prenom <input type ="text" name ="txt_prenom" class="form-control w-50">
         <button type="submit" class="btn btn-success mt-2">Ajouter</button>
 

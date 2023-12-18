@@ -31,6 +31,13 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+        // code validation si les champs vide ou non
+        $request->validate([
+            'txt_nom'=>'required' ,
+            'txt_prenom'=>'required' ,
+        ]);
+
+        // code Ajouter
         post::create([
             'nom' => $request->txt_nom ,
             'prenom' => $request->txt_prenom ,
