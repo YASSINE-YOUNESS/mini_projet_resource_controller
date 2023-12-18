@@ -13,6 +13,10 @@
 
      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
+    <!-- CDN toastr -->
+
+    <link rel="stylesheet" href="//cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
+
 
 
 </head>
@@ -99,9 +103,42 @@
 
 
 
+<!-- // APPEL JQUERY ET JS DE TOASTER -->
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+
+<script>
+    @if(Session::has('message_id'))
+    var type ="{{Session::get('alert-type','info')}}"
+    switch(type){
+        case'info':
+            toastr.info("{{Session::get('message_id')}}");
+
+            break;
+
+        case'success':
+            toastr.success("{{Session::get('message_id')}}");
+            break;
+
+        case'warning':
+            toastr.warning ("{{Session::get('message_id')}}");
+            break;
+
+        case'error':
+            toastr.error ("{{Session::get('message_id')}}");
+            break;
+    }
+
+    @endif
+</script>
+
+
+<!-- -------------------------------------------------------------------- -->
+
+
+
 
 <!--  CDN JS -->
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>

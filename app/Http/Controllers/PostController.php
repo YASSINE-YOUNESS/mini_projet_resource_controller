@@ -43,7 +43,13 @@ class PostController extends Controller
             'prenom' => $request->txt_prenom ,
         ]);
 
-        return back();
+        $notification = array(
+            'message_id' => 'Ajouter Avec Succees',
+            'alert-type' => 'success'
+        );
+
+        return back()->with($notification);
+
 
 
     }
@@ -74,9 +80,20 @@ class PostController extends Controller
             'prenom' => $request->txt_prenom ,
         ]);
         $all_posts = post::all();
-        return view('post' , compact('all_posts'));
 
-        // return redirect()->route('posts');
+
+        $notification = array(
+            'message_id' => 'Modifier Avec Success',
+            'alert-type' => 'info'
+        );
+
+
+
+        return view('post', compact('all_posts'));
+
+
+
+
 
     }
 
@@ -86,6 +103,13 @@ class PostController extends Controller
     public function destroy($id)
     {
         post::destroy($id);
-        return redirect()->back();
+
+        $notification = array(
+            'message_id' => 'Supprimer Avec Succees',
+            'alert-type' => 'warning'
+        );
+
+        return back()->with($notification);
+
     }
 }
